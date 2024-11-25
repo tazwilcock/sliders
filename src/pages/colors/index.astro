@@ -1,0 +1,87 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Home" metaDescription="Home Page Meta Description">
+  <section class="container mx-auto px-7 py-32">
+    <h2 class="text-h4 md:text-h3 my-4">Text Color Shades</h2>
+
+    <p class="text-red-50">Tailwind is awesome</p>
+    <p class="text-red-100">Tailwind is awesome</p>
+    <p class="text-red-200">Tailwind is awesome</p>
+    <p class="text-red-300">Tailwind is awesome</p>
+    <p class="text-red-400">Tailwind is awesome</p>
+    <p class="text-red-500">Tailwind is awesome</p>
+    <p class="text-red-600">Tailwind is awesome</p>
+    <p class="text-red-700">Tailwind is awesome</p>
+    <p class="text-red-800">Tailwind is awesome</p>
+    <p class="text-red-900">Tailwind is awesome</p>
+
+    <h2 class="text-h4 md:text-h3 my-4">Text Background Colors</h2>
+
+    <!-- Background Colors -->
+    <div class="bg-slate-600">
+      <p class="text-white">Tailwind is awesome</p>
+    </div>
+    <div class="bg-zinc-400">
+      <p class="text-white">Tailwind is awesome</p>
+    </div>
+    <div class="bg-emerald-600">
+      <p class="text-white">Tailwind is awesome</p>
+    </div>
+    <div class="bg-purple-600">
+      <p class="text-white">Tailwind is awesome</p>
+    </div>
+
+    <h2 class="text-h4 md:text-h3 my-4">Text Underline Colors</h2>
+
+    <p class="text-red-700 underline decoration-red-700">Tailwind is awesome</p>
+    <p class="text-blue-700 underline decoration-blue-700">
+      Tailwind is awesome
+    </p>
+
+    <h2 class="text-h4 md:text-h3 my-4">Input Border Colors</h2>
+
+    <input class="border-2 border-rose-500" />
+    <input class="border-2 border-blue-300" />
+    <input class="border-2 border-purple-900" />
+    <input class="border-2 border-yellow-500" />
+
+    <h2 class="text-h4 md:text-h3 my-4">Divide-y Colors</h2>
+
+    <div class="divide-y divide-green-200">
+      <div>Item 1</div>
+      <div>Item 2</div>
+      <div>Item 4</div>
+      <div>Item 5</div>
+      <div>Item 6</div>
+    </div>
+
+    <h2 class="text-h4 md:text-h3 my-4">Button Element Outline Colors</h2>
+
+    <button class="outline outline-blue-500">Subscribe</button>
+    <button class="outline outline-purple-300">Subscribe</button>
+    <button class="outline outline-gray-500">Subscribe</button>
+
+    <h2 class="text-h4 md:text-h3 mt-4">Button Element Shadow Colors</h2>
+    <p class="mb-4">(Opacity defaults to 100 but you can change it)</p>
+
+    <!-- Box Shadow Colors (Opacity defaults to 100, but you cans set it)-->
+    <button class="bg-cyan-500 shadow-lg shadow-cyan-500">Subscribe</button>
+    <button class="bg-blue-500 shadow-lg shadow-blue-500/50">Subscribe</button>
+    <button class="bg-indigo-500 shadow-lg shadow-indigo-500/50">
+      Subscribe
+    </button>
+    <h2 class="text-h4 md:text-h3 my-4">Input Type Checkbox Accent Colors</h2>
+
+    <input type="checkbox" class="accent-purple-500" checked /> Option 1
+    <input type="checkbox" class="accent-pink-500" checked /> Option 2
+    <input type="checkbox" class="accent-red-300" checked /> Option 3
+
+    <h2 class="text-h4 md:text-h3 my-4">For Arbitrary Colors Use Brackets</h2>
+
+    <div class="h-10 bg-[#427fab]">Hello</div>
+    <div class="h-10 text-[#427fab]">Hello</div>
+    <div class="h-10 border border-[#427fab] pb-40">Hello</div>
+  </section>
+</MainLayout>

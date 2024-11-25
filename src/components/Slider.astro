@@ -1,0 +1,144 @@
+---
+import data from "../data/reviews.json";
+---
+
+<section class="slider">
+  <h2 class="sr-only">Reviews</h2>
+  <div class="slider-container">
+    <button class="slider-btn slider-btn--prev" aria-label="Previous Review">
+      &#8592;
+    </button>
+
+    <div class="slider-track">
+      {
+        data.map((review, index) => (
+          <div class="slide" aria-hidden={index !== 0}>
+            <img
+              src={review.avatar}
+              alt={review.name}
+              class="slide-avatar"
+              loading="lazy"
+            />
+            <p class="slide-content mx-auto max-w-sm text-balance">
+              {review.content}
+            </p>
+            <p class="slide-name">{review.name}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <button class="slider-btn slider-btn--next" aria-label="Next Review">
+      &#8594;
+    </button>
+  </div>
+</section>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const track = document.querySelector(".slider-track");
+    const slides = Array.from(document.querySelectorAll(".slide"));
+    const prevBtn = document.querySelector(".slider-btn--prev");
+    const nextBtn = document.querySelector(".slider-btn--next");
+    let currentIndex = 0;
+
+    function updateSlider() {
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    prevBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateSlider();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateSlider();
+    });
+
+    updateSlider(); // Initialize slider position
+  });
+</script>
+
+<style>
+  :root {
+    --slider-bg: #1a1a1a;
+    --slider-text: #f4f4f4;
+    --slider-accent: #ff6b6b;
+  }
+
+  .slider {
+    background: var(--slider-bg);
+    color: var(--slider-text);
+    padding: 1rem 0;
+    text-align: center;
+    overflow: hidden; /* Prevent testimonials on the sides from showing */
+    position: relative;
+  }
+
+  .slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden; /* Ensure only one slide is visible */
+  }
+
+  .slider-track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    will-change: transform;
+  }
+
+  .slide {
+    flex: 0 0 100%; /* Ensure each slide takes 100% width */
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .slide-avatar {
+    max-width: 80px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+  }
+
+  .slide-content {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .slide-name {
+    font-weight: bold;
+    color: var(--slider-accent);
+  }
+
+  .slider-btn {
+    background: transparent;
+    border: none;
+    color: var(--slider-text);
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+  }
+
+  .slider-btn--prev {
+    left: 10px;
+  }
+
+  .slider-btn--next {
+    right: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .slide-content {
+      font-size: 0.9rem;
+    }
+  }
+</style>

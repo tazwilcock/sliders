@@ -1,0 +1,9 @@
+---
+export interface MetaTagsProps {
+  description: string;
+}
+
+const { description } = Astro.props;
+---
+
+<meta name="description" content={description} />
